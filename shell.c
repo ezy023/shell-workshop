@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
 	printf("===> ");
 
 	char *line = NULL;
-	int capacity = 0;
+	size_t capacity = 0;
 	getline(&line, &capacity, stdin);
 	
 	cmd_struct *process_args = parse_command(line);
