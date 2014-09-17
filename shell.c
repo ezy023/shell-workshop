@@ -14,10 +14,14 @@ int main(int argc, char **argv) {
 
     while (1) {
 	printf("===> ");
+
 	char *line = NULL;
 	int capacity = 0;
 	getline(&line, &capacity, stdin);
-	printf("%s\n", line);
+	
+	cmd_struct *process_args = parse_command(line);
+	execvp(process_args->progname, process_args->args);
+	
     }
 
     return 0;
