@@ -7,13 +7,18 @@
 #include "utils.h"
 
 int main(int argc, char **argv) {
-  char command[] = "ls -a -l";
-  char pipeline[] = "ls -a -l | wc -l";
 
-  cmd_struct* c = parse_command(command);
-  print_command(c);
+    printf("Running shell...\n");
+    printf("To exit, C-c\n");
+    printf("\n\n");
 
-  pipeline_struct* p = parse_pipeline(pipeline);
-  print_pipeline(p);
-  return 0;
+    while (1) {
+	printf("===> ");
+	char *line = NULL;
+	int capacity = 0;
+	getline(&line, &capacity, stdin);
+	printf("%s\n", line);
+    }
+
+    return 0;
 }
